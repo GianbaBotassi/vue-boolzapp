@@ -1,0 +1,28 @@
+/* root variables */
+:root{
+    --dark-green:#009688;
+    --green-message:#009688;
+    --light-blue:#009688;
+    --grey:#d4dbda;
+    --grey-hover:#d7dbd6;
+    --grey-header:#eaeaea;
+}
+
+#green_bar{
+    background-color: var(--dark-green);
+    height: 15vh;
+}
+#grey_bar{
+    background-color: var(--grey);
+    height: 85vh;
+}
+#bg_cont{
+    position: relative;
+}
+#app_cont{
+    height: 90vh;
+    width: 80%;
+    background-color: white;
+    position: absolute;
+    left:0;
+}
