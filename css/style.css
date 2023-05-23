@@ -2,27 +2,74 @@
 :root{
     --dark-green:#009688;
     --green-message:#009688;
-    --light-blue:#009688;
+    --light-blue:#8edafc;
     --grey:#d4dbda;
     --grey-hover:#d7dbd6;
     --grey-header:#eaeaea;
 }
 
+/* General styles */
+ul, li{
+    padding: 0;
+    list-style: none;
+}
+
 #green_bar{
     background-color: var(--dark-green);
     height: 15vh;
+    width: 100%;
+
 }
-#grey_bar{
-    background-color: var(--grey);
-    height: 85vh;
-}
+
 #bg_cont{
     position: relative;
 }
 #app_cont{
-    height: 90vh;
+    height: 85vh;
     width: 80%;
-    background-color: white;
-    position: absolute;
-    left:0;
+    background-color: royalblue;
+    margin: 0 auto;
+}
+
+
+
+/* DEBUG */
+#left_bar{
+    background-color: red;
+    width: 30%;
+    height: 100%;
+    border-right:2px solid var(--grey-hover);
+}
+#right_bar{
+    background-color: purple;
+    width: 70%;
+    height: 100%;
+}
+#left_bar_head, #right_bar_head{
+    background-color: var(--grey-header);
+    height: 50px;
+    width: 100%;
+}
+#notify_bar{
+    height: 60px;
+    width: 100%;
+    background-color: var(--light-blue);
+}
+#search_bar{
+    background-color: var(--grey-header);
+    width: 100%;
+    padding: 0.3rem;
+}
+#contact_list{
+    background-color: green;
+    overflow-y: scroll;
+}
+img{
+    max-width: 100%;
+}
+.userimg_cont{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
 }
