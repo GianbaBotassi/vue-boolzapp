@@ -19,9 +19,9 @@
                 <div id="left_bar_head" class="d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center ps-1">
                         <div class="userimg_cont">
-                            <img src="img/1.jpg" alt="">
+                            <img :src="contacts[0].avatar" alt="">
                         </div>
-                        <h6 class="ps-1">Nome</h6>
+                        <h6 class="ps-1">{{contacts[0].name}}</h6>
                     </div>
                     <div class="d-flex align-items-center pe-2">
                         <i class="fa-solid fa-circle-notch"></i>
@@ -48,13 +48,13 @@
                   </div>
                 <ul id="contact_list">
                     <li>
-                        <div class="d-flex justify-content-between p-1">
+                        <div v-for="contact in contacts" class="d-flex justify-content-between p-1">
                             <div class="d-flex">
                                 <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
+                                    <img :src="contact.avatar" alt="">
                                 </div>
                                 <div class="ms-3">
-                                    <h6>Nome</h6>
+                                    <h6>{{contact.name}}</h6>
                                     <div class="data">23.05.23</div>
                                 </div>
                             </div>
@@ -63,166 +63,7 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="d-flex justify-content-between p-1">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img src="img/1.jpg" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>Nome</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                        </div>
-                    </li>
+                    
                     
                 
     
@@ -233,10 +74,10 @@
                 <div id="right_bar_head" class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center ps-1">
                         <div class="userimg_cont">
-                            <img src="img/1.jpg" alt="">
+                            <img :src="contacts[activeContact].avatar" alt="">
                         </div>
                         <div class="ms-4">
-                            <h6>Nome</h6>
+                            <h6>{{contacts[activeContact].name}}</h6>
                             <div class="data">23.05.23</div>
                         </div>
                     </div>
@@ -247,8 +88,8 @@
                     </div>
                 </div>
                 <div id="chat_cont" class="d-flex flex-column flex-nowrap">
-                    <div class="received d-flex justify-content-between align-items-center">
-                        <div class="text_message">Ciaooaooooo</div>    
+                    <div v-for="text in contacts[activeContact].messages" class="text_message d-flex justify-content-between align-items-center" :class="text.status"> 
+                        <div class="ps-2">{{text.message}}</div>    
                         <div class="hour_sent">
                             11:23
                         </div>
