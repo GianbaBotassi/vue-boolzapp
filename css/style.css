@@ -3,73 +3,175 @@
     --dark-green:#009688;
     --green-message:#009688;
     --light-blue:#8edafc;
-    --grey:#d4dbda;
+    --grey:#d8dbd5;
     --grey-hover:#d7dbd6;
     --grey-header:#eaeaea;
 }
-
-/* General styles */
+/*************************************************
+                GENERAL STYLES
+ *************************************************/
+body{
+    font-size: 0.8rem;
+}
 ul, li{
     padding: 0;
     list-style: none;
 }
+h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+}
+/*************************************************
+                SITE SECTIONS
+ *************************************************/
 
-#green_bar{
-    background-color: var(--dark-green);
-    height: 15vh;
-    width: 100%;
-
+ /* Container style */
+ #bg_cont{
+    background-color: var(--grey);
 }
 
-#bg_cont{
-    position: relative;
-}
+/* App Boolzapp container */
 #app_cont{
-    height: 85vh;
-    width: 80%;
-    background-color: royalblue;
+    max-width: 1060px;
+    height:100vh;
     margin: 0 auto;
+    background-color: var(--grey-header);
 }
 
-
-
-/* DEBUG */
+            /* LEFT BAR */
 #left_bar{
-    background-color: red;
-    width: 30%;
-    height: 100%;
+    min-width: 300px;
     border-right:2px solid var(--grey-hover);
 }
-#right_bar{
-    background-color: purple;
-    width: 70%;
-    height: 100%;
-}
-#left_bar_head, #right_bar_head{
-    background-color: var(--grey-header);
-    height: 50px;
-    width: 100%;
-}
+
+/* Barra notifiche azzurra */
 #notify_bar{
     height: 60px;
-    width: 100%;
     background-color: var(--light-blue);
 }
+#notify_bar i{
+    color: var(--light-blue);
+}
+#bell_cont{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/* Barra ricerca contatti */
 #search_bar{
     background-color: var(--grey-header);
-    width: 100%;
     padding: 0.3rem;
+    height: 50px;
 }
+#search_bar input{
+    font-size: 0.7rem;
+    width: 250px;
+}
+
+/* Container contatti */
 #contact_list{
-    background-color: green;
-    overflow-y: scroll;
+    height: calc(100% - 170px);     /*da verificare*/
+    overflow: scroll;
 }
-img{
-    max-width: 100%;
+#contact_list li{
+    background-color: white;
+    border-bottom: 0.5px solid var(--grey-header);
 }
+#contact_list li .userimg_cont{
+    height: 50px;
+    width: 50px;
+}
+
+
+            /* RIGHT BAR */
+#right_bar{
+    width: calc(100% - 300px);
+    position: relative;
+}
+
+/* Contenitore chat */
+#chat_cont{
+    background-image: url(../img/bg-boolzapp.png);
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow:scroll;
+    padding: 20px 50px;
+}
+
+/* Classi messaggi inviati e ricevuti */
+.received, .sent {
+    padding: 2px;
+    border-radius: 5px;
+    min-height: 50px;
+}
+.sent {
+    background-color: var(--green-message);
+    align-self: flex-end;
+    max-width: 500px;
+}
+.received {
+    background-color: white;
+    align-self: flex-start;
+    max-width: 500px;
+}
+.hour_sent{
+    margin-left: 100px;
+    font-size: 0.6rem;
+    align-self: flex-end;
+}
+.text_message{
+    margin-left: 20px;
+}
+
+/* Container sezione input messaggi */
+#message_cont{                
+    height: 80px;
+    width: 100%;
+    background-color: var(--grey-header);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+#message_cont i{
+    font-size: 2rem;
+}
+#message_cont input{
+    width: 600px;
+}
+
+
+/* Left and right bar styles */
+#left_bar_head, #right_bar_head{
+    height: 60px;
+    background-color: var(--grey-header);
+}
+#left_bar_head i,#right_bar_head i{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: var(--grey);
+}
+
+
+/* IMMAGINE USER */
 .userimg_cont{
     height: 40px;
     width: 40px;
     border-radius: 50%;
     overflow: hidden;
 }
+.userimg_cont img{
+    max-width: 100%;
+}
+
+
+/* DEBUG */
+
+
+
+
+
+
+

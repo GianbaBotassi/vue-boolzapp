@@ -14,69 +14,255 @@
 </head>
 <body>
     <div id="bg_cont">
-        <div id="green_bar"></div>
-        <div id="grey_bar"></div>
         <div id="app_cont" class="d-flex">
             <div id="left_bar">
-                <div id="left_bar_head" class="d-flex justify-content-between">
-                    <div class="d-flex align-items-center">
+                <div id="left_bar_head" class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center ps-1">
                         <div class="userimg_cont">
                             <img src="img/1.jpg" alt="">
                         </div>
-                        <span>Nome</span>
+                        <h6 class="ps-1">Nome</h6>
                     </div>
-                    <div>
-                        <i class="fa-light fa-circle-notch"></i>
+                    <div class="d-flex align-items-center pe-2">
+                        <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <div id="notify_bar">
-
+                <div id="notify_bar" class="d-flex p-2">
+                    <div id="bell_cont" class="d-flex justify-content-center align-items-center me-2">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
                 </div>
-                <div id="search_bar">
-                    <input type="text">
-                </div>
+                <div id="search_bar" class="input-group p-2">
+                    <div class="form-outline d-flex">
+                        <div class="btn btn-secondary d-flex align-items-center">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="search" id="form1" class="form-control" placeholder="Cerca o inizia una nuova chat..">
+                    </div>
+                  </div>
                 <ul id="contact_list">
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
-                    <li>ciaoaoaoo</li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex justify-content-between p-1">
+                            <div class="d-flex">
+                                <div class="userimg_cont">
+                                    <img src="img/1.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>Nome</h6>
+                                    <div class="data">23.05.23</div>
+                                </div>
+                            </div>
+                            <div class="pe-2">
+                                12.00
+                            </div>
+                        </div>
+                    </li>
+                    
+                
+    
+            
                 </ul>
             </div>
             <div id="right_bar">
-                <div id="right_bar_head">
-                    
+                <div id="right_bar_head" class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center ps-1">
+                        <div class="userimg_cont">
+                            <img src="img/1.jpg" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h6>Nome</h6>
+                            <div class="data">23.05.23</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center pe-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
                 </div>
-
+                <div id="chat_cont" class="d-flex flex-column flex-nowrap">
+                    <div class="received d-flex justify-content-between align-items-center">
+                        <div class="text_message">Ciaooaooooo</div>    
+                        <div class="hour_sent">
+                            11:23
+                        </div>
+                    </div>
+                </div>
+                <div id="message_cont" class="d-flex justify-content-around align-items-center">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input class="form-control" type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-
+    
 
     <!-- Vue link -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
