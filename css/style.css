@@ -6,6 +6,7 @@
     --grey:#d8dbd5;
     --grey-hover:#d7dbd6;
     --grey-header:#eaeaea;
+    --grey-selected:#adafab;
 }
 /*************************************************
                 GENERAL STYLES
@@ -27,13 +28,14 @@ h1,h2,h3,h4,h5,h6{
 
  /* Container style */
  #bg_cont{
+    height: 100vh;
     background-color: var(--grey);
 }
 
 /* App Boolzapp container */
 #app_cont{
     max-width: 1060px;
-    height:100vh;
+    height:90%;
     margin: 0 auto;
     background-color: var(--grey-header);
 }
@@ -79,16 +81,23 @@ h1,h2,h3,h4,h5,h6{
 #contact_list li{
     background-color: white;
     border-bottom: 0.5px solid var(--grey-header);
+    cursor: pointer;
 }
 #contact_list li .userimg_cont{
     height: 50px;
     width: 50px;
 }
+.selected_grey{
+    background-color: var(--grey-selected);
+}
+#contact_list li div:hover{
+    background-color: var(--grey-hover);
+}
 
 
             /* RIGHT BAR */
 #right_bar{
-    width: calc(100% - 300px);
+    width: 700px;
     position: relative;
 }
 

@@ -3,7 +3,8 @@ const {createApp} = Vue;
 createApp({
     data(){
         return{
-            activeContact: 0,
+            activeChat: 0,
+            newMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -168,6 +169,25 @@ createApp({
                 }
             ]
                    
+        }
+    },
+    methods:{
+        addMessage(){   //verifico se newTask non è vuota
+            if(this.newMessage !== ''){
+                this.contacts[0].messages.push(
+                    {date: '10/01/2020 15:30:55',
+                    message: this.newMessage,
+                    status : 'sent'});
+
+                setTimeout(this.addBotMessage,1000)    
+                        
+            }
+            this.newMessage = '';    //ogni volta azzero variabile input
+         },
+         addBotMessage(){this.contacts[0].messages.push(
+            {date: '10/01/2020 15:30:55',
+            message: 'ok',
+            status : 'received'})
         }
     }
 }).mount('#app_cont');

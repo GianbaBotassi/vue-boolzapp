@@ -13,7 +13,7 @@
     <title>Boolzap</title>
 </head>
 <body>
-    <div id="bg_cont">
+    <div id="bg_cont" class="d-flex align-items-center">
         <div id="app_cont" class="d-flex">
             <div id="left_bar">
                 <div id="left_bar_head" class="d-flex justify-content-between align-items-center">
@@ -48,7 +48,7 @@
                   </div>
                 <ul id="contact_list">
                     <li>
-                        <div v-for="contact in contacts" class="d-flex justify-content-between p-1">
+                        <div v-for="(contact, idx) in contacts" class="d-flex justify-content-between p-1" @click="activeChat = idx" :class="activeChat === idx ? 'selected_grey' : ''">
                             <div class="d-flex">
                                 <div class="userimg_cont">
                                     <img :src="contact.avatar" alt="">
@@ -63,21 +63,16 @@
                             </div>
                         </div>
                     </li>
-                    
-                    
-                
-    
-            
                 </ul>
             </div>
             <div id="right_bar">
                 <div id="right_bar_head" class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center ps-1">
                         <div class="userimg_cont">
-                            <img :src="contacts[activeContact].avatar" alt="">
+                            <img :src="contacts[activeChat].avatar" alt="">
                         </div>
                         <div class="ms-4">
-                            <h6>{{contacts[activeContact].name}}</h6>
+                            <h6>{{contacts[activeChat].name}}</h6>
                             <div class="data">23.05.23</div>
                         </div>
                     </div>
@@ -88,7 +83,7 @@
                     </div>
                 </div>
                 <div id="chat_cont" class="d-flex flex-column flex-nowrap">
-                    <div v-for="text in contacts[activeContact].messages" class="text_message d-flex justify-content-between align-items-center" :class="text.status"> 
+                    <div v-for="text in contacts[activeChat].messages" class="text_message d-flex justify-content-between align-items-center" :class="text.status"> 
                         <div class="ps-2">{{text.message}}</div>    
                         <div class="hour_sent">
                             11:23
@@ -97,7 +92,7 @@
                 </div>
                 <div id="message_cont" class="d-flex justify-content-around align-items-center">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input class="form-control" type="text" placeholder="Scrivi un messaggio">
+                    <input v-model="newMessage" @keyup.enter="addMessage" class="form-control" type="text" placeholder="Scrivi un messaggio">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
