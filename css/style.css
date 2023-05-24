@@ -3,9 +3,10 @@
     --dark-green:#009688;
     --green-message:#d5f9ba;
     --light-blue:#8edafc;
-    --grey:#d8dbd5;
+    --grey:#999998;
+    --grey-bg:#edf0ea;
     --grey-hover:#d7dbd6;
-    --grey-header:#eaeaea;
+    --grey-header:#e7e4e4;
     --grey-selected:#adafab;
 }
 /*************************************************
@@ -26,18 +27,31 @@ h1,h2,h3,h4,h5,h6{
                 SITE SECTIONS
  *************************************************/
 
+/* Barra verde bg */
+#greenbar{
+    background-color: var(--dark-green);
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    z-index: 0;
+}
+
  /* Container style */
  #bg_cont{
     height: 100vh;
-    background-color: var(--grey);
+    background-color: var(--grey-bg);
+    position: relative
 }
 
 /* App Boolzapp container */
 #app_cont{
     max-width: 1060px;
-    height:90%;
+    height:95%;
     margin: 0 auto;
-    background-color: var(--grey-header);
+    background-color: white;
+    z-index: 1;
 }
 
             /* LEFT BAR */
@@ -75,13 +89,15 @@ h1,h2,h3,h4,h5,h6{
 
 /* Container contatti */
 #contact_list{
-    height: calc(100% - 170px);     /*da verificare*/
+    height: calc(100% - 170px);
     overflow: scroll;
 }
 #contact_list li{
     background-color: white;
-    border-bottom: 0.5px solid var(--grey-header);
     cursor: pointer;
+}
+#contact_list li > div{
+    border-top: 0.5px solid var(--grey-header); 
 }
 #contact_list li .userimg_cont{
     height: 50px;
@@ -107,7 +123,7 @@ h1,h2,h3,h4,h5,h6{
     width: 100%;
     height: calc(100% - 60px);
     overflow:scroll;
-    padding: 20px 50px;
+    padding: 20px 50px 100px;
 }
 
 /* Classi messaggi inviati e ricevuti */
@@ -145,6 +161,7 @@ h1,h2,h3,h4,h5,h6{
 }
 #message_cont i{
     font-size: 2rem;
+    color: var(--grey);
 }
 #message_cont input{
     width: 600px;

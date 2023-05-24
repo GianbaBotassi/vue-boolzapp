@@ -5,6 +5,12 @@ createApp({
         return{
             activeChat: 0,
             newMessage: '',
+            searchWord: '',
+            searchContactList: '',
+            user:{
+                name: 'Luighi',
+                avatar: '.img/user.jpg'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -108,7 +114,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './img/avatar_5.jpg',
+                    avatar: './img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -174,20 +180,22 @@ createApp({
     methods:{
         addMessage(){   //verifico se newTask non è vuota
             if(this.newMessage !== ''){
-                this.contacts[0].messages.push(
+                this.contacts[this.activeChat].messages.push(
                     {date: '10/01/2020 15:30:55',
                     message: this.newMessage,
                     status : 'sent'});
 
                 setTimeout(this.addBotMessage,1000)    
-                        
             }
             this.newMessage = '';    //ogni volta azzero variabile input
          },
-         addBotMessage(){this.contacts[0].messages.push(
+         addBotMessage(){this.contacts[this.activeChat].messages.push(
             {date: '10/01/2020 15:30:55',
             message: 'ok',
             status : 'received'})
+        },
+        searchWordContacts(){       //filtro in un nuovo array con valore di searchWord
+            this.searchContactList = this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
         }
     }
 }).mount('#app_cont');
