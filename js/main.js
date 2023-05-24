@@ -6,7 +6,7 @@ createApp({
             activeChat: 0,
             newMessage: '',
             searchWord: '',                 //variabile per parola cercata
-            searchContactList: '',          //array creato con filter
+            actualData:'',          
             user:{
                 name: 'Luighi',
                 avatar: '.img/user.jpg'
@@ -180,8 +180,11 @@ createApp({
     methods:{
         addMessage(){   //verifico se newTask non è vuota
             if(this.newMessage !== ''){
+
+                this.addDataNow();
+
                 this.contacts[this.activeChat].messages.push(
-                    {date: '10/01/2020 15:30:55',
+                    {date: this.actualData.toLocaleString(luxon.DateTime.DATETIME_MED),
                     message: this.newMessage,
                     status : 'sent'});
 
@@ -189,8 +192,12 @@ createApp({
             }
             this.newMessage = '';    //ogni volta azzero variabile input
          },
-         addBotMessage(){this.contacts[this.activeChat].messages.push(      //messaggio Bot
-            {date: '10/01/2020 15:30:55',
+         addBotMessage(){
+            
+            this.addDataNow();
+
+            this.contacts[this.activeChat].messages.push(      //messaggio Bot
+            {date: this.actualData.toLocaleString(luxon.DateTime.DATETIME_MED),
             message: 'ok',
             status : 'received'})
         },
@@ -198,7 +205,12 @@ createApp({
             this.contacts[this.activeChat].messages.splice(indice,1);
         },
         searchWordContacts(){       //filtro in un nuovo array con valore di searchWord
-            this.searchContactList = this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
+            return this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
+        },
+        addDataNow(){
+            this.actualData = luxon.DateTime.local()
+            console.log(this.actualData.year);
         }
+        
     }
 }).mount('#app_cont');

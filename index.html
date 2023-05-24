@@ -62,40 +62,19 @@
 
                   <!-- Contact list -->
                 <ul id="contact_list">
-                    <li>
-                        
-                        <!-- V-if se array filtrato è vuoto -->
-                        <div v-if="searchContactList === ''" v-for="(contact, idx) in contacts" class="d-flex justify-content-between p-1" @click="activeChat = idx" :class="activeChat === idx ? 'selected_grey' : ''">
+                    <li v-for="(contact, idx) in searchWordContacts()" class="d-flex justify-content-between p-1" @click="activeChat = idx" :class="activeChat === idx ? 'selected_grey' : ''">
                             <div class="d-flex">
                                 <div class="userimg_cont">
                                     <img :src="contact.avatar" alt="">
                                 </div>
                                 <div class="ms-3">
                                     <h6>{{contact.name}}</h6>
-                                    <div class="data">23.05.23</div>
+                                    <div class="last_msg">{{contact.messages[contact.messages.length - 1].message}}</div>
                                 </div>
                             </div>
                             <div class="pe-2">
                                 12.00
                             </div>
-                        </div>
-
-                        <!-- V-else se array searchContactList ha almeno un oggetto -->
-                        <div v-else v-for="(contact, idx) in searchContactList" class="d-flex justify-content-between p-1" @click="activeChat = idx" :class="activeChat === idx ? 'selected_grey' : ''">
-                            <div class="d-flex">
-                                <div class="userimg_cont">
-                                    <img :src="contact.avatar" alt="">
-                                </div>
-                                <div class="ms-3">
-                                    <h6>{{contact.name}}</h6>
-                                    <div class="data">23.05.23</div>
-                                </div>
-                            </div>
-                            <div class="pe-2">
-                                12.00
-                            </div>
-                            
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -107,70 +86,31 @@
                 <!-- Right Bar Head -->
                 <div id="right_bar_head" class="d-flex align-items-center justify-content-between">
                     
-                    <!-- V-if se array filtrato è vuoto -->
-                    <div v-if="searchContactList === ''" class="d-flex align-items-center ps-1">
+                    <div class="d-flex align-items-center ps-1">
                         <div class="userimg_cont">
                             <img :src="contacts[activeChat].avatar" alt="">
                         </div>
                         <div class="ms-4">
                             <h6>{{contacts[activeChat].name}}</h6>
-                            <div class="data">23.05.23</div>
+                            <div class="last_msg">{{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].message}}</div>
                         </div>
                     </div>
 
-                    <!-- V-else se array searchContactList ha almeno un oggetto -->
-                    <div v-else class="d-flex align-items-center ps-1">
-                        <div class="userimg_cont">
-                            <img :src="searchContactList[activeChat].avatar" alt="">
-                        </div>
-                        <div class="ms-4">
-                            <h6>{{searchContactList[activeChat].name}}</h6>
-                            <div class="data">23.05.23</div>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center pe-2">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
                 </div>
 
                 <!-- Chat section -->
                 <div id="chat_cont" class="d-flex flex-column flex-nowrap">
 
-                    <!-- V-if se array filtrato è vuoto -->
-                    <div v-if="searchContactList === ''" v-for="(text, idx) in contacts[activeChat].messages" class="text_message d-flex justify-content-between align-items-center" :class="text.status"> 
-                        <div class="ps-2">{{text.message}}</div>
-                        <div class="data_btn">
-                            <div class="dropdown-center">
-                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li class="dropdown-item btn">Info messaggio</li>
-                                  <li class="dropdown-item btn" @click="deleteMessage(idx)">Cancella messaggio</li>
-                                </ul>
-                            </div>
-                            <div class="hour_sent">
-                                11:23
-                            </div>
-                        </div>    
-                    </div>
-
-                    <!-- V-else se array searchContactList ha almeno un oggetto -->
-                    <div v-else v-for="(text, idx) in contacts[activeChat].messages" class="text_message d-flex justify-content-between align-items-center" :class="text.status"> 
-                        <div class="ps-2">{{text.message}}</div>
-                        <div class="data_btn">
-                            <div class="dropdown-center">
-                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li class="dropdown-item btn">Info messaggio</li>
-                                  <li class="dropdown-item btn" @click="deleteMessage(idx)">Cancella messaggio</li>
-                                </ul>
-                            </div>
-                            <div class="hour_sent">
-                                11:23
-                            </div>
+                    <div v-for="(text, idx) in contacts[activeChat].messages" class=" text_message" :class="text.status"> 
+                        <div class="msg px-2 py-2">{{text.message}}</div>
+                        <div class="hour_sent text-end">{{text.date}}</div>
+                        <div class="dropdown-center">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item btn">Info messaggio</li>
+                              <li class="dropdown-item btn" @click="deleteMessage(idx)">Cancella messaggio</li>
+                            </ul>
                         </div>    
                     </div>
                 </div>
@@ -185,7 +125,8 @@
         </div>
     </div>
     
-
+    <!-- Luxon js -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Vue link -->
