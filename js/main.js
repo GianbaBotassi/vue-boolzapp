@@ -184,7 +184,7 @@ createApp({
                 this.addDataNow();
 
                 this.contacts[this.activeChat].messages.push(
-                    {date: this.actualData.toLocaleString(luxon.DateTime.DATETIME_MED),
+                    {date: this.actualData,
                     message: this.newMessage,
                     status : 'sent'});
 
@@ -208,8 +208,9 @@ createApp({
             return this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
         },
         addDataNow(){
-            this.actualData = luxon.DateTime.local()
-            console.log(this.actualData.year);
+             const d = luxon.DateTime.local();  //estraggo data da luxon local ed assegno a variabile
+
+             this.actualData = d.toFormat('dd/LL/yyyy hh:mm:ss')    //converto a formato desiderato      
         }
         
     }

@@ -107,6 +107,15 @@ h1,h2,h3,h4,h5,h6{
 #contact_list li:hover{
     background-color: var(--grey-hover);
 }
+
+.contact_date{
+    font-size: 0.6rem;
+    align-self: flex-end;
+    text-align: right;
+}
+
+
+/* Condiviso con right bar head */
 .last_msg{
     width: 200px;
     height: 20px;
