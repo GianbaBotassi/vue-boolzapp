@@ -5,8 +5,8 @@ createApp({
         return{
             activeChat: 0,
             newMessage: '',
-            searchWord: '',
-            searchContactList: '',
+            searchWord: '',                 //variabile per parola cercata
+            searchContactList: '',          //array creato con filter
             user:{
                 name: 'Luighi',
                 avatar: '.img/user.jpg'
@@ -185,14 +185,17 @@ createApp({
                     message: this.newMessage,
                     status : 'sent'});
 
-                setTimeout(this.addBotMessage,1000)    
+                setTimeout(this.addBotMessage,1000)    //risposta automatica dopo 1 secondo
             }
             this.newMessage = '';    //ogni volta azzero variabile input
          },
-         addBotMessage(){this.contacts[this.activeChat].messages.push(
+         addBotMessage(){this.contacts[this.activeChat].messages.push(      //messaggio Bot
             {date: '10/01/2020 15:30:55',
             message: 'ok',
             status : 'received'})
+        },
+        deleteMessage(indice){      //elimina messaggio cliccato
+            this.contacts[this.activeChat].messages.splice(indice,1);
         },
         searchWordContacts(){       //filtro in un nuovo array con valore di searchWord
             this.searchContactList = this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
