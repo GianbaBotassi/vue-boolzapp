@@ -244,6 +244,23 @@ createApp({
                         }
                     ],
                 }
+            ],
+            quotation:[
+                'Dona a chi ami ali per volare, radici per tornare e motivi per rimanere.',
+                'Due cose sono infinite: l\'universo e la stupidità umana, ma riguardo l\'universo ho ancora dei dubbi.',
+                'Il cielo stellato sopra di me, e la legge morale dentro di me.',
+                'La maggior gloria nella vita non è non cadere mai, ma rialzarsi ogni volta che si cade.',
+                'Colpirne uno per educarne cento.',
+                'Si vive una volta sola, ma se lo fai bene, una volta sola è abbastanza.',
+                'Il tuo tempo è limitato, quindi non sprecarlo vivendo la vita di qualcun altro.',
+                'Per ogni minuto in cui sei arrabbiato, perdi sessanta secondi di felicità.',
+                'Non giudicare ciascun giorno dal raccolto che hai ottenuto, ma dai semi che hai piantato.',
+                'Venni, vidi, vinsi',
+                'Sii il cambiamento che vuoi vedere nel mondo.',
+                'In tre parole posso riassumere tutto quello che ho imparato sulla vita: si va avanti.',
+                'La vita è davvero semplice, ma noi insistiamo per renderla complicata.',
+                'È meglio fallire nell\'originalità che avere successo nell\'imitazione.',
+                'Sai che sei innamorato, quando non riesci a dormire perchè finalmente la realtà è migliore dei tuoi sogni.'
             ]
                    
         }
@@ -263,13 +280,13 @@ createApp({
             }
             this.newMessage = '';    //ogni volta azzero variabile input
          },
-         addBotMsg(){
+         addBotMsg(){       //funzione aggiungi data con formato, messaggio randomato dall'array quotation
             
-            this.addDataNow();      //funzione aggiungi data
+            this.addDataNow();      
 
             this.contacts[this.activeChat].messages.push(      //messaggio Bot
             {date: this.actualData.toLocaleString(luxon.DateTime.DATETIME_MED),
-            message: 'ok',
+            message: this.quotation[this.mathRandomMinMax(0,this.quotation.length -1)],
             status : 'received'})
         },
         deleteMsg(indice){      //elimina messaggio cliccato
@@ -295,7 +312,10 @@ createApp({
              const d = luxon.DateTime.local();  //estraggo data da luxon local ed assegno a variabile
 
              this.actualData = d.toFormat('dd/LL/yyyy hh:mm:ss')    //converto a formato desiderato      
-        }
+        },
+        mathRandomMinMax(min, max){  //math random num
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+}
         
     }
 }).mount('#app_cont');
