@@ -1,0 +1,229 @@
+/* root variables */
+:root{
+    --dark-green:#009688;
+    --green-message:#d5f9ba;
+    --light-blue:#8edafc;
+    --grey:#999998;
+    --grey-bg:#edf0ea;
+    --grey-hover:#d7dbd6;
+    --grey-header:#e7e4e4;
+    --grey-selected:#adafab;
+}
+/*************************************************
+                GENERAL STYLES
+ *************************************************/
+body{
+    font-size: 0.8rem;
+}
+ul, li{
+    padding: 0;
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+}
+/*************************************************
+                SITE SECTIONS
+ *************************************************/
+
+/* Barra verde bg */
+#greenbar{
+    background-color: var(--dark-green);
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0 ;
+    z-index: 0;
+}
+
+ /* Container style */
+ #bg_cont{
+    height: 100vh;
+    background-color: var(--grey-bg);
+    position: relative
+}
+
+/* App Boolzapp container */
+#app_cont{
+    max-width: 1060px;
+    width: 80%;
+    height:95%;
+    margin: 0 auto;
+    background-color: white;
+    z-index: 1;
+}
+
+            /* LEFT SIDE */
+#left_side{
+    width: 350px;
+    border-right:2px solid var(--grey-hover);
+}
+
+/* Barra notifiche azzurra */
+#notify_bar{
+    height: 60px;
+    background-color: var(--light-blue);
+}
+#notify_bar i{
+    color: var(--light-blue);
+}
+#bell_cont{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/* Barra ricerca contatti */
+#search_bar{
+    background-color: var(--grey-header);
+    padding: 0.3rem;
+    height: 50px;
+}
+#search_bar input{
+    font-size: 0.7rem;
+    width: 250px;
+}
+
+/* Container contatti */
+#contact_list{
+    height: calc(100% - 170px);
+    overflow: scroll;
+    background-color: white;
+}
+#contact_list li{
+    cursor: pointer;
+    border-top: 0.5px solid var(--grey-header); 
+    min-height: 0px;
+    padding:0.25rem;
+}
+
+#contact_list li.contact_no_visible{
+    padding:0;
+    border-top: 0;
+}
+
+#contact_list li .userimg_cont{
+    height: 50px;
+    width: 50px;
+}
+.selected_grey{
+    background-color: var(--grey-selected);
+}
+#contact_list li:hover{
+    background-color: var(--grey-hover);
+}
+
+.contact_date{
+    font-size: 0.6rem;
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* Condiviso con right side head */
+.last_msg{
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
+}
+
+
+            /* RIGHT SIDE */
+#right_side{
+    width: 100%;
+    position: relative;
+}
+
+/* Contenitore chat */
+#chat_cont{
+    background-image: url(../img/bg-boolzapp.png);
+    height: calc(100% - 60px);
+    overflow:scroll;
+    padding: 20px 30px 100px;
+}
+
+/* Classi messaggi inviati e ricevuti */
+
+.sent {
+    background-color: var(--green-message);
+    align-self: flex-end;
+}
+.received {
+    background-color: white;
+    align-self: flex-start;
+}
+.hour_sent{
+    margin-left: 50px;
+    font-size: 0.6rem;
+}
+.dropdown-center{
+    display: none;
+    position: absolute;
+    right: -5px;
+    top: 2px;
+}
+.text_message:hover .dropdown-center{
+    display: block;
+}
+.text_message{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    padding: 2px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Container sezione input messaggi */
+#message_cont{                
+    height: 80px;
+    width: 100%;
+    background-color: var(--grey-header);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+#message_cont i{
+    font-size: 2rem;
+    color: var(--grey);
+}
+#message_cont input{
+    width: 600px;
+}
+
+
+/* Left and right side styles */
+#left_side_head, #info_chat{
+    height: 60px;
+    background-color: var(--grey-header);
+}
+#left_side_head i,#info_chat i{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    color: var(--grey);
+}
+
+
+/* IMMAGINE USER */
+.userimg_cont{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.userimg_cont img{
+    max-width: 100%;
+}
+
+
+/* DEBUG */
+
+
+
+
+
+
+

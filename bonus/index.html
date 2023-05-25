@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Boolzapp</title>
+</head>
+<body>
+    <div id="bg_cont" class="d-flex align-items-center">
+
+        <!-- Barra verde bg -->
+        <div id="greenbar"></div>
+
+        <!-- App Boolzapp -->
+        <div id="app_cont" class="d-flex">
+
+            <!-- LEFT SIDE -->
+            <div id="left_side">
+
+                <!-- Left side Head -->
+                <div id="left_side_head" class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center ps-1">
+                        <div class="userimg_cont">
+                            <img src="img/user.jpg" alt="">
+                        </div>
+                        <h6 class="ps-1">{{user.name}}</h6>
+                    </div>
+                    <div class="d-flex align-items-center pe-2">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+
+                <!-- Notify Bar -->
+                <div id="notify_bar" class="d-flex p-2">
+                    <div id="bell_cont" class="d-flex justify-content-center align-items-center me-2">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div id="search_bar" class="input-group p-2">
+                    <div class="form-outline d-flex">
+                        <div class="btn border border-secondary d-flex align-items-center">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input @keyup="searchContacts" type="search" v-model="searchContact" id="form1" class="form-control" placeholder="Cerca o inizia una nuova chat..">
+                    </div>
+                  </div>
+
+                  <!-- Contact list -->
+                <ul id="contact_list">
+
+                    <!-- Applicate classi multiple, verifico condizione se visible è true e aggiungo classe bg grey se selezionata -->
+                    <li v-for="(contact, idx) in contacts" :class="[(!contact.visible ? 'contact_no_visible':''),(activeChat === idx ? 'selected_grey' : '')]" class="d-flex justify-content-between" @click="activeChat = idx">
+                            <div v-if="contact.visible" class="d-flex">
+                                <div class="userimg_cont">
+                                    <img :src="contact.avatar" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6>{{contact.name}}</h6>
+                                    <div class="last_msg">{{contact.messages[contact.messages.length - 1].message}}</div>
+                                </div>
+                            </div>
+                            <div v-if="contact.visible" class="contact_date pe-2">
+                                {{contact.messages[contact.messages.length - 1].date}}
+                            </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div id="right_side">
+
+                <!-- Right Bar Head -->
+                <div id="info_chat" class="d-flex align-items-center justify-content-between">
+                    
+                    <div class="d-flex align-items-center ps-1">
+                        <div class="userimg_cont">
+                            <img :src="contacts[activeChat].avatar" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h6>{{contacts[activeChat].name}}</h6>
+                            <div class="last_msg">{{contacts[activeChat].messages[contacts[activeChat].messages.length - 1].message}}</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center pe-2">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+
+                <!-- Chat section -->
+                <div id="chat_cont" class="d-flex flex-column flex-nowrap">
+
+                    <div v-for="(text, idx) in contacts[activeChat].messages" class=" text_message" :class="text.status"> 
+                        <div class="msg px-2 py-2">{{text.message}}</div>
+                        <div class="hour_sent text-end">{{text.date}}</div>
+                        <div class="dropdown-center">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item btn">Info messaggio</li>
+                              <li class="dropdown-item btn" @click="deleteMsg(idx)">Cancella messaggio</li>
+                            </ul>
+                        </div>    
+                    </div>
+                </div>
+
+                <!-- Input message section -->
+                <div id="message_cont" class="d-flex justify-content-around align-items-center">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input v-model="newMessage" @keyup.enter="addMsg" class="form-control" type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Luxon js -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Vue link -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
