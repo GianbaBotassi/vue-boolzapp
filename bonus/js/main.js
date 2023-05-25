@@ -4,6 +4,9 @@ createApp({
     data(){
         return{
             activeChat: 0,
+            loading: true,                     //variabile stato per splash page
+            chatPreview: false,                //variabile di stato per msg benvenuto chat
+            changeFontSize: false,
             newMessage: '',
             searchContact: '',                 //variabile per parola cercata
             actualData:'',          
@@ -292,10 +295,14 @@ createApp({
         deleteMsg(indice){      //elimina messaggio cliccato
             this.contacts[this.activeChat].messages.splice(indice,1);
         },
+        // deleteAllMsg(indice){      //elimina messaggio cliccato
+        //     this.contacts[0].messages.length = 0;
+        //     console.log(this.activeChat);
+        // },
         searchContacts(){       //Ciclo contatti, se non includono la parola visible diventa false
 
             this.contacts.forEach(element => {
-                if(element.name.includes(this.searchContact)){
+                if(element.name.toLowerCase().includes(this.searchContact.toLowerCase())){
                     element.visible = true
                 }else{
                     element.visible = false;
@@ -315,7 +322,17 @@ createApp({
         },
         mathRandomMinMax(min, max){  //math random num
             return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+        },
+        chatOn(){
+            // Cambio variabile di stato per togliere messaggio di benvenuto in chat
+            this.chatPreview = true;
+        },
+        fontSize(){
+            this.changeFontSize = !this.changeFontSize
+        }
         
+    },mounted(){
+        setInterval(() => (this.loading = false),1000);    
+        //variabile di stato loading va in false dopo 2 secondi, scompare landing page
     }
-}).mount('#app_cont');
+}).mount('#app');
