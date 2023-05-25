@@ -249,8 +249,8 @@ createApp({
         }
     },
     methods:{
-        addMsg(){   //verifico se newTask non è vuota
-            if(this.newMessage !== ''){
+        addMsg(){   //verifico se newTask non è vuota, non ha solo spazi vuoti
+            if(this.newMessage !== '' && this.newMessage.replace(/ /g,'').length !== 0){
 
                 this.addDataNow();      //funzione aggiungi data
 
