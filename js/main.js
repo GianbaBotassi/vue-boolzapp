@@ -278,7 +278,7 @@ createApp({
         searchContacts(){       //Ciclo contatti, se non includono la parola visible diventa false
 
             this.contacts.forEach(element => {
-                if(element.name.includes(this.searchContact)){
+                if(element.name.toLowerCase().includes(this.searchContact)){
                     element.visible = true
                 }else{
                     element.visible = false;
