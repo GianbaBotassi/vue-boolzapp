@@ -48,15 +48,16 @@ h1,h2,h3,h4,h5,h6{
 /* App Boolzapp container */
 #app_cont{
     max-width: 1060px;
+    width: 80%;
     height:95%;
     margin: 0 auto;
     background-color: white;
     z-index: 1;
 }
 
-            /* LEFT BAR */
-#left_bar{
-    min-width: 300px;
+            /* LEFT SIDE */
+#left_side{
+    width: 350px;
     border-right:2px solid var(--grey-hover);
 }
 
@@ -91,12 +92,20 @@ h1,h2,h3,h4,h5,h6{
 #contact_list{
     height: calc(100% - 170px);
     overflow: scroll;
+    background-color: white;
 }
 #contact_list li{
-    background-color: white;
     cursor: pointer;
     border-top: 0.5px solid var(--grey-header); 
+    min-height: 0px;
+    padding:0.25rem;
 }
+
+#contact_list li.contact_no_visible{
+    padding:0;
+    border-top: 0;
+}
+
 #contact_list li .userimg_cont{
     height: 50px;
     width: 50px;
@@ -114,8 +123,7 @@ h1,h2,h3,h4,h5,h6{
     text-align: right;
 }
 
-
-/* Condiviso con right bar head */
+/* Condiviso con right side head */
 .last_msg{
     width: 200px;
     height: 20px;
@@ -123,16 +131,15 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-            /* RIGHT BAR */
-#right_bar{
-    width: 700px;
+            /* RIGHT SIDE */
+#right_side{
+    width: 100%;
     position: relative;
 }
 
 /* Contenitore chat */
 #chat_cont{
     background-image: url(../img/bg-boolzapp.png);
-    width: 100%;
     height: calc(100% - 60px);
     overflow:scroll;
     padding: 20px 30px 100px;
@@ -188,12 +195,12 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-/* Left and right bar styles */
-#left_bar_head, #right_bar_head{
+/* Left and right side styles */
+#left_side_head, #info_chat{
     height: 60px;
     background-color: var(--grey-header);
 }
-#left_bar_head i,#right_bar_head i{
+#left_side_head i,#info_chat i{
     margin-left: 1rem;
     font-size: 1.5rem;
     color: var(--grey);

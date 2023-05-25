@@ -5,7 +5,7 @@ createApp({
         return{
             activeChat: 0,
             newMessage: '',
-            searchWord: '',                 //variabile per parola cercata
+            searchContact: '',                 //variabile per parola cercata
             actualData:'',          
             user:{
                 name: 'Luighi',
@@ -172,40 +172,124 @@ createApp({
                             status: 'received'
                         }
                     ],
+                },
+                {
+                    name: 'Pinni',
+                    avatar: './img/avatar_3.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Qua sta piovendo di brutto',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Qua no',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'Ok niente, ciao allora',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    name: 'Renata',
+                    avatar: './img/avatar_6.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Pronto salve, sono la Renata',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Ascolta oggi in piazza c\'è una raccolta per raccogliere dei fondi, partecipa?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'EEEE vediamo dopo, ma a che ore?',
+                            status: 'received'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'Alle tre e mezza!',
+                            status: 'sent'
+                        }
+                    ],
+                },
+                {
+                    name: 'Zaffa',
+                    avatar: './img/avatar_8.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            message: 'Oggi qua volano neve',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Omar!',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:51:00',
+                            message: 'Non c\'entro niente io',
+                            status: 'received'
+                        }
+                    ],
                 }
             ]
                    
         }
     },
     methods:{
-        addMessage(){   //verifico se newTask non è vuota
+        addMsg(){   //verifico se newTask non è vuota
             if(this.newMessage !== ''){
 
-                this.addDataNow();
+                this.addDataNow();      //funzione aggiungi data
 
-                this.contacts[this.activeChat].messages.push(
+                this.contacts[this.activeChat].messages.push(       //pusho oggetto messaggio
                     {date: this.actualData,
                     message: this.newMessage,
                     status : 'sent'});
 
-                setTimeout(this.addBotMessage,1000)    //risposta automatica dopo 1 secondo
+                setTimeout(this.addBotMsg,1000)    //risposta automatica dopo 1 secondo
             }
             this.newMessage = '';    //ogni volta azzero variabile input
          },
-         addBotMessage(){
+         addBotMsg(){
             
-            this.addDataNow();
+            this.addDataNow();      //funzione aggiungi data
 
             this.contacts[this.activeChat].messages.push(      //messaggio Bot
             {date: this.actualData.toLocaleString(luxon.DateTime.DATETIME_MED),
             message: 'ok',
             status : 'received'})
         },
-        deleteMessage(indice){      //elimina messaggio cliccato
+        deleteMsg(indice){      //elimina messaggio cliccato
             this.contacts[this.activeChat].messages.splice(indice,1);
         },
-        searchWordContacts(){       //filtro in un nuovo array con valore di searchWord
-            return this.contacts.filter(item => item.name.toLowerCase().includes(this.searchWord));
+        searchContacts(){       //Ciclo contatti, se non includono la parola visible diventa false
+
+            this.contacts.forEach(element => {
+                if(element.name.includes(this.searchContact)){
+                    element.visible = true
+                }else{
+                    element.visible = false;
+                }
+            });
+            
+            // (Opzione con impossibilità di selezionare chat corretta dopo ricerca)
+            // Filtro in un nuovo array con valore di searchContact
+
+            // return this.contacts.filter(item => item.name.toLowerCase().includes(this.searchContact));
+
         },
         addDataNow(){
              const d = luxon.DateTime.local();  //estraggo data da luxon local ed assegno a variabile
